@@ -6,12 +6,12 @@
 #  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/16 11:16:50 by cehenrot        #+#    #+#               #
-#  Updated: 2026/02/16 13:18:17 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/02/18 14:06:21 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
 class Plant:
-    def __init__(self, name, size, age):
+    def __init__(self, name: str, size: int, age: int):
         self.name = name
         self.size = size
         self.age = age
