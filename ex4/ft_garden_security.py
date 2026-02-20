@@ -1,47 +1,49 @@
+#!/usr/bin/env python3
 # ************************************************************************* #
 #                                                                           #
 #                                                      :::      ::::::::    #
 #  ft_garden_security.py                             :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/17 13:54:52 by cehenrot        #+#    #+#               #
-#  Updated: 2026/02/18 14:07:41 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/02/20 10:47:32 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
 class SecurePlant:
-    def __init__(self, name: str, height: int, age: int):
+    def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
-        self._height = height
-        self._age = age
+        self.__height = height
+        self.__age = age
 
-    def set_height(self, value: int):
+    def set_height(self, value: int) -> None:
         match (value < 0):
             case True:
                 print(f"operation attempted: height {value}cm"
                       " [REJECTED]")
             case False:
                 print(f"Height updated: height {value}cm [OK]")
-                self._height = value
+                self.__height = value
 
-    def set_age(self, value: int):
+    def set_age(self, value: int) -> None:
         match (value < 0):
             case True:
-                print(f"operation attempted: age {value} days"
-                      " [REJECTED]")
+                print()
+                print(f"operation attempted: age {value} days "
+                      "[REJECTED]\nSecurity: Negative height rejected")
             case False:
                 print(f"Age updated: age {value} days [OK]")
-                self._age = value
+                self.__age = value
 
-    def get_name(self):
+    def get_name(self) -> str:
         return self.name
 
-    def get_height(self):
-        return self._height
+    def get_height(self) -> int:
+        return self.__height
 
-    def get_age(self):
-        return self._age
+    def get_age(self) -> int:
+        return self.__age
 
 
 def main():
@@ -50,8 +52,9 @@ def main():
     print(f"Plant created: {plant.name}")
     plant.set_height(25)
     plant.set_age(-30)
+    print()
     print(f"Current plant: {plant.get_name()}"
-          f"({plant.get_height()}cm {plant.get_age()} days)")
+          f"({plant.get_height()}cm, {plant.get_age()} days)")
 
 
 if __name__ == "__main__":

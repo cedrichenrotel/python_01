@@ -1,22 +1,26 @@
+#!/usr/bin/env python3
 # ************************************************************************* #
 #                                                                           #
 #                                                      :::      ::::::::    #
 #  ft_plant_factory.py                               :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/16 13:19:25 by cehenrot        #+#    #+#               #
-#  Updated: 2026/02/18 14:08:22 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/02/20 10:51:33 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
 class Plant:
-    def __init__(self, name: str, size: int, days: int):
+    nb_plant: int = 0
+
+    def __init__(self, name: str, size: int, days: int) -> None:
         self.name = name
         self.size = size
         self.days = days
+        Plant.nb_plant += 1
 
-    def printf(self):
+    def printf(self) -> None:
         print(f"Created: {self.name} "
               f"({self.size} cm, {self.days} day old)")
 
@@ -27,6 +31,6 @@ if __name__ == "__main__":
              Plant("Fern", 15, 120)]
 
     print("=== Plant Factory Output ===")
-    for i in range(len(lst_p)):
+    for i in range(Plant.nb_plant):
         lst_p[i].printf()
     print(f"Total plants created: {i + 1}")
