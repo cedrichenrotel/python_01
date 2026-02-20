@@ -1,12 +1,13 @@
+#!/usr/bin/env python3
 # ************************************************************************* #
 #                                                                           #
 #                                                      :::      ::::::::    #
 #  ft_plant_types.py                                 :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/18 10:08:43 by cehenrot        #+#    #+#               #
-#  Updated: 2026/02/18 15:57:21 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/02/20 10:59:47 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -20,7 +21,7 @@ class Plant:
 class Flower(Plant):
     def __init__(self, name: str, height: int, age: int, color: str) -> (None):
         super().__init__(name, height, age)
-        self.colore = color
+        self.color = color
 
     def bloom(self) -> (None):
         print(f"{self.name} is blooming beautifully!")
@@ -57,7 +58,7 @@ class Vegetable(Plant):
 def specification_plant(obj: Plant) -> (None):
     if (type(obj).__name__ == "Flower"):
         print(f"{obj.name}(Flower): {obj.height}cm, {obj.age} days, "
-              f"{obj.colore} color")
+              f"{obj.color} color")
         obj.bloom()
     elif (type(obj).__name__ == "Tree"):
         print(f"{obj.name}(Tree): {obj.height}cm, {obj.age} days, "
