@@ -7,7 +7,7 @@
 #  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/20 11:02:32 by cehenrot        #+#    #+#               #
-#  Updated: 2026/02/20 18:52:54 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/02/23 07:40:06 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -17,10 +17,12 @@ class Plant:
         self.height = height
         self.age = age
 
+
 class FloweringPlant(Plant):
     def __init__(self, name: str, height: int, age: int, color: str) -> None:
         super().__init__(name, height, age)
         self.color = color
+
 
 class PrizeFlower(FloweringPlant):
     def __init__(self, name: str, height: int, age: int, color: str, score: int) -> None:
@@ -28,12 +30,11 @@ class PrizeFlower(FloweringPlant):
         self.score = score
 
 
-class GardenManager: #boite principale
-    #nb_garden = 0
+class GardenManager:
+
     def __init__(self, garden: str) -> None:
         self.garden = garden
-        self.Plant = [] #tableau de plante
-    #    nb_garden += 1
+        self.Plant = []
 
     class GardenStats:
         @staticmethod
@@ -42,13 +43,13 @@ class GardenManager: #boite principale
             for plant in list_p:
                 total_growth += plant.height
             return total_growth
-        
+
         def Plants_added(list_p) -> int:
             total_plant = 0
             for plant in list_p:
                 total_plant += 1
             return total_plant
-        
+
         def is_instance(list_p) -> None:
             stats = {"Plant": 0, "FloweringPlant": 0, "PrizeFlower": 0}
             for plant in list_p:
@@ -87,6 +88,6 @@ def main():
           f"Total growth: {height_total}cm")
     GardenManager.GardenStats.is_instance(list_p)
 
+
 if __name__ == "__main__":
     main()
-    
