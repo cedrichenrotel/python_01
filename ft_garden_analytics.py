@@ -5,10 +5,10 @@
 #                                                      :::      ::::::::    #
 #  ft_garden_analytics.py                            :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/24 08:15:14 by cehenrot        #+#    #+#               #
-#  Updated: 2026/02/24 19:09:41 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/02/25 10:11:39 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -49,33 +49,12 @@ class GardenManager:
         self.list_garden = {}
         self.list_garderner = []
 
-    @classmethod
-    def create_garden_network(cls, list_garderner: list) -> "GardenManager":
-        instance = cls()
-        for garderner in list_garderner:
-            if garderner in list_garderner:
-                instance.list_garden[garderner] = []
-        return instance
-
     def add_list(self, garderner: str, plant: object) -> None:
         if garderner not in self.list_garden:
             self.list_garden[garderner] = []
         self.list_garden[garderner].append(plant)
 
     class GardenStats:
-        @staticmethod
-        def growth_total(plant_list: list) -> int:
-            total_height = 0
-            for plant in plant_list:
-                total_height += plant.get_height()
-            return total_height
-
-        @staticmethod
-        def Plants_added(manager: object) -> int:
-            total_plant = 0
-            for plant in manager:
-                total_plant += 1
-            return total_plant
 
         @staticmethod
         def print_is_instance(plant_list: list) -> None:
@@ -101,8 +80,8 @@ class GardenManager:
             return (total_score)
 
         @staticmethod
-        def nb_garderner(garderner_dict: dict) -> int:
-            return len(garderner_dict)
+        def print_nb_garderner(garderner_dict: dict) -> None:
+            print(f"Total gardens managed: {len(garderner_dict)}")
 
         @staticmethod
         def secure_height(plant_list: list) -> str:
@@ -113,6 +92,7 @@ class GardenManager:
 
         @staticmethod
         def print_list_garderen(plant_list: list) -> None:
+            print("Plants in garden:")
             for plant in plant_list:
                 base = f"- {plant.name}: {plant.get_height()}cm"
                 if isinstance(plant, PrizeFlower):
@@ -122,30 +102,59 @@ class GardenManager:
                     base += f" {plant.color} flower (blooming)"
                 print(base)
 
+        @staticmethod
+        def print_added_plant(garderner: str, plant_list: list) -> None:
+            for plant in plant_list:
+                print(f"Added {plant.name} to {garderner}'s garden")
+
+        @staticmethod
+        def print_plant_grow(garderner: str, plant_list: list) -> None:
+            print(f"{garderner} is helping all plants grow...")
+            for plant in plant_list:
+                new_height = plant.get_height() + 1
+                plant.set_height(new_height)
+                print(f"{plant.name} grew 1cm")
+
+        @staticmethod
+        def growth_total(plant_list: list) -> int:
+            total_height = 0
+            for plant in plant_list:
+                total_height += plant.get_height()
+            return total_height
+
+        @staticmethod
+        def Plants_added(plant_list: list) -> int:
+            total_plant = 0
+            for plant in plant_list:
+                total_plant += 1
+            return total_plant
+
 
 def main():
     manager = GardenManager()
-    manager.add_list("Cedric", FloweringPlant("Rose", 10, "black"))
-    manager.add_list("Cedric", FloweringPlant("Iris", -15, "white"))
-    manager.add_list("Cedric", PrizeFlower("flower", 5, "yello", 5))
-    manager.add_list("Cedric", PrizeFlower("Rose", 15, "white", 3))
-    manager.add_list("Cannelle", PrizeFlower("Rose", 5, "red", 3))
-    manager.add_list("Cannelle", FloweringPlant("Iris", 10, "yello"))
+    manager.add_list("Cedric", Plant("Oak Tree", 101))
+    manager.add_list("Cedric", FloweringPlant("Rose", 26, "red"))
+    manager.add_list("Cedric", PrizeFlower("Sunflower", 51, "yellow", 10))
+    manager.add_list("Cannelle", FloweringPlant("Sunflower", 40, "white"))
+    manager.add_list("Cannelle", PrizeFlower("Rose", 22, "red", 10))
+    manager.add_list("Cannelle", FloweringPlant("Iris", 20, "yello"))
 
     cedric_plants = manager.list_garden["Cedric"]
     cannelle_plants = manager.list_garden["Cannelle"]
 
     height_total = GardenManager.GardenStats.growth_total(cedric_plants)
     total_plant = GardenManager.GardenStats.Plants_added(cedric_plants)
-    nb_garderner = GardenManager.GardenStats.nb_garderner(manager.list_garden)
     score_cedric = GardenManager.GardenStats.garden_score(cedric_plants)
     score_cannelle = GardenManager.GardenStats.garden_score(cannelle_plants)
     check_height = GardenManager.GardenStats.secure_height(cedric_plants)
 
     print("=== Garden Management System Demo ===")
     print()
+    GardenManager.GardenStats.print_added_plant("Cedric", cedric_plants)
+    print()
+    GardenManager.GardenStats.print_plant_grow("Cedric", cedric_plants)
+    print()
     print("=== Cedric's Garden Report ===")
-    print("Plants in garden:")
     GardenManager.GardenStats.print_list_garderen(cedric_plants)
     print()
     print(f"Plants added: {total_plant}, "
@@ -155,7 +164,7 @@ def main():
     print(f"Height validation test: {check_height}")
     print(f"Garden scores - Cedric: {score_cedric}, "
           f"Cannelle: {score_cannelle}")
-    print(f"Total gardens managed: {nb_garderner}")
+    GardenManager.GardenStats.print_nb_garderner(manager.list_garden)
 
 
 if __name__ == "__main__":
