@@ -4,10 +4,10 @@
 #                                                      :::      ::::::::    #
 #  ft_garden_data.py                                 :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/16 08:13:35 by cehenrot        #+#    #+#               #
-#  Updated: 2026/02/20 09:38:13 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/02/25 10:44:43 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -18,7 +18,7 @@ class Plant:
         self.age = age
 
     def print(self) -> None:
-        print(f"{self.name}: {self.size}cm, {self.age} day old")
+        print(f"{self.name}: {self.size}cm, {self.age} days old")
 
 
 if __name__ == "__main__":

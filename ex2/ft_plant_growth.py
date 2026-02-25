@@ -4,10 +4,10 @@
 #                                                      :::      ::::::::    #
 #  ft_plant_growth.py                                :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/16 11:16:50 by cehenrot        #+#    #+#               #
-#  Updated: 2026/02/20 10:51:22 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/02/25 10:46:39 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -22,7 +22,7 @@ class Plant:
         self.age += 1
 
     def print_plant(self) -> None:
-        print(f"{self.name}:", f"{self.size} cm, {self.age} day old")
+        print(f"{self.name}:", f"{self.size} cm, {self.age} days old")
 
 
 if __name__ == "__main__":

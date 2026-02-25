@@ -4,10 +4,10 @@
 #                                                      :::      ::::::::    #
 #  ft_plant_factory.py                               :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/16 13:19:25 by cehenrot        #+#    #+#               #
-#  Updated: 2026/02/20 10:51:33 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/02/25 10:48:14 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -22,7 +22,7 @@ class Plant:
 
     def printf(self) -> None:
         print(f"Created: {self.name} "
-              f"({self.size} cm, {self.days} day old)")
+              f"({self.size} cm, {self.days} days old)")
 
 
 if __name__ == "__main__":

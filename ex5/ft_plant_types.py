@@ -4,10 +4,10 @@
 #                                                      :::      ::::::::    #
 #  ft_plant_types.py                                 :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/18 10:08:43 by cehenrot        #+#    #+#               #
-#  Updated: 2026/02/20 10:59:47 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/02/25 11:11:05 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -33,15 +33,15 @@ class Tree(Plant):
         super().__init__(name, height, age)
         self.diameter = diameter
 
-    def shadow_area_calculation(self) -> (int):
+    def shadow_area_calculation(self) -> int:
         if (self.height > 0):
-            return self.height * (self.diameter / 10)
+            return int(1.56 * (self.diameter))
         else:
             return 0
 
     def produce_shade(self) -> (None):
         area = self.shadow_area_calculation()
-        print(f"The {self.name} provides {area} square meters of shade")
+        print(f"{self.name} provides {area} square meters of shade")
 
 
 class Vegetable(Plant):
@@ -72,12 +72,9 @@ def specification_plant(obj: Plant) -> (None):
 
 def main():
     garden = [
-        Flower("Rose", 30, 25, "red"),
-        Flower("iris", 5, 7, "white"),
-        Tree("apple tree", 70, 2410, 25),
-        Tree("Oak", 8, 50000, 25),
-        Vegetable("Tomato", 5, 18, "April", "vitamine C"),
-        Vegetable("carrot", 5, 18, "March", "vitamine A")
+        Flower("Rose", 25, 30, "red"),
+        Tree("Oak", 500, 1825, 50),
+        Vegetable("Tomato", 80, 90, "April", "vitamine C"),
     ]
 
     print("=== Garden Plant Types ===")
