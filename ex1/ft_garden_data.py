@@ -4,10 +4,10 @@
 #                                                      :::      ::::::::    #
 #  ft_garden_data.py                                 :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: cehenrot <cehenrot@student.42lyon.fr>     +#+  +:+       +#+         #
+#  By: cehenrot <cehenrot@student.42.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/16 08:13:35 by cehenrot        #+#    #+#               #
-#  Updated: 2026/02/25 17:05:49 by cehenrot        ###   ########.fr        #
+#  Updated: 2026/02/27 07:29:25 by cehenrot        ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -29,7 +29,6 @@ class Plant:
 
 
 if __name__ == "__main__":
-    # Create plant instances
     plants = [
         Plant("Chene", 40, 200),
         Plant("Iris", 60, 123),
